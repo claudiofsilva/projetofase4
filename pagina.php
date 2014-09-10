@@ -10,8 +10,9 @@ class Pagina {
 
    public function __construct()
    {
-       $conexao = new Conexao();
-       $this->db = $conexao->retornaConexao();
+       $conexao = conexao();
+       $this->db = $conexao;
+
    }
 
    public function buscar()

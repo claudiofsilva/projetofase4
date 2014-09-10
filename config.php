@@ -5,6 +5,6 @@ return array(
 			'host' => 'localhost',
 			'dbname' => 'curso',
 			'user' => 'root',
-			'password' => ''
+			'password' => 'root'
 	)
 );
