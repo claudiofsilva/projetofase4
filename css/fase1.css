@@ -23,6 +23,8 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.atualizar{margin-top: 20px;}
 .nav-justified > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
