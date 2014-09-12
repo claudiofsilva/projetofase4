@@ -21,6 +21,10 @@ if($_SESSION['logado']){
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/fase1.css" rel="stylesheet">
         <script src="js/bootstrap.min.js"></script>
+		<script src="js/tinymce/tinymce.min.js"></script>
+		<script>
+			tinymce.init({selector:'textarea'});
+		</script>
     </head>
     <body>
     <div class="container">
@@ -46,7 +50,7 @@ if($_SESSION['logado']){
                         <input type="text" class="form-control" name="nome-pagina" value="<?php echo $retornoPaginas['nome']?>" >
                     </div>
                     <label for="exampleInputEmail1">Descrição pagina</label>
-                    <textarea class="form-control" rows="3" name="descricao-pagina"><?php echo $retornoPaginas['descricao']?></textarea>
+                    <textarea class="form-control" rows="5" name="descricao-pagina"><?php echo $retornoPaginas['descricao']?></textarea>
                     <button class="atualizar" type="submit" class="btn btn-default">Atualizar</button>
                 </form>
             <?php } ?>
