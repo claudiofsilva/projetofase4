@@ -32,58 +32,58 @@ if(rotas($path) == 'erro.php'){
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Projeto fase 3</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fase1.css" rel="stylesheet">
-        <script src="js/bootstrap.min.js"></script>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projeto fase 3</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fase1.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
 
-        <div class="container">
-            <h3 class="text-muted">Projeto fase 3</h3>
-            <?php require_once 'menu.php' ?>
-            <?php				
-                require_once 'pagina.php';
-                $pagina = new Pagina();
-            
-                if($_POST['palavraChave']){
+<div class="container">
+    <h3 class="text-muted">Projeto fase 3</h3>
+    <?php require_once 'menu.php' ?>
+    <?php
+    require_once 'pagina.php';
+    $pagina = new Pagina();
 
-                    $pagina->setBusca($_POST['palavraChave']);
+    if($_POST['palavraChave']){
 
-                    if($pagina->buscar()){
-                        foreach($pagina->buscar() as $busca){
-                            echo "<a href=".$busca['nome'].">".$busca['descricao']."</a><br>";
-                        }
-                    }
+        $pagina->setBusca($_POST['palavraChave']);
 
-                }elseif($path){				
-					require_once (rotas($path));
-				} else {
-            ?>
+        if($pagina->buscar()){
+            foreach($pagina->buscar() as $busca){
+                echo "<a href=".$busca['nome'].">".$busca['descricao']."</a><br>";
+            }
+        }
 
-            <form class="form-horizontal" role="form" method="post" action="">
-                <div class="form-group">
-                    <label for="inputEmail2" class="col-sm-2 control-label">Buscar Palavra Chave</label>
-                    <div class="col-sm-10">
-                        <input type="name" class="form-control" id="inputEmail4" placeholder="Palavra chave" name="palavraChave">
-                    </div>
+    }elseif($path){
+        require_once (rotas($path));
+    } else {
+        ?>
+
+        <form class="form-horizontal" role="form" method="post" action="">
+            <div class="form-group">
+                <label for="inputEmail2" class="col-sm-2 control-label">Buscar Palavra Chave</label>
+                <div class="col-sm-10">
+                    <input type="name" class="form-control" id="inputEmail4" placeholder="Palavra chave" name="palavraChave">
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Enviar</button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Enviar</button>
                 </div>
-            </form>
+            </div>
+        </form>
 
-            <?php } ?>
+    <?php } ?>
 
-            <?php require_once 'footer.php';?>
+    <?php require_once 'footer.php';?>
 
-        </div>
+</div>
 
-    </body>
+</body>
 </html>

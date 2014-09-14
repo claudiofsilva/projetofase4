@@ -1,7 +1,13 @@
 <?php
 session_start();
 
+if($_GET['logout']){
+    session_unset();
+    header('location:/admin.php');
+}
+
 if($_SESSION['logado']){
+
     require_once 'conexao.php';
 
     $db = conexao();
@@ -12,7 +18,6 @@ if($_SESSION['logado']){
 
     $resultado = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-
     ?>
     <html>
     <head>
@@ -21,14 +26,18 @@ if($_SESSION['logado']){
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/fase1.css" rel="stylesheet">
         <script src="js/bootstrap.min.js"></script>
-		<script src="js/tinymce/tinymce.min.js"></script>
-		<script>
-			tinymce.init({selector:'textarea'});
-		</script>
+        <script src="js/tinymce/tinymce.min.js"></script>
+        <script>
+            tinymce.init({selector:'textarea'});
+        </script>
     </head>
     <body>
     <div class="container">
         <?php if(!$_GET and !$_POST) { ?>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active pull-right"><a href="?logout=1">Sair</a></li>
+            </ul>
+
             <ul class="list-group">
                 <?php foreach($resultado as $paginas) { ?>
                     <li class="list-group-item"><?php echo $paginas['nome'].' - '.$paginas['descricao']?> <a class="pull-right" href="/paginas-editar.php?id=<?php echo $paginas['id']?>">Editar</a></li>
@@ -67,10 +76,11 @@ if($_SESSION['logado']){
             $dadosUpdate = $stmt->execute();
 
             if($dadosUpdate){
-                echo "atualizou";
+                header('location:/paginas-editar.php');
             }else{
-                echo "não atualizou";
+                echo "Houve problema para atualizar dados, tente novamente";
             }
+
 
             ?>
         <?php } ?>

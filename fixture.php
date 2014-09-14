@@ -33,15 +33,15 @@ echo "Inserindo dados";
 $options = array('cost' => 10);
 
 $dadosTabela = array(
-            1 => array(
-                'nome' => 'claudio',
-                'senha' => password_hash('12345',PASSWORD_DEFAULT,$options)
-            ),
-            2 => array(
-                'nome' => 'admin',
-                'senha' => password_hash('codeeducation',PASSWORD_DEFAULT,$options)
-            )
-    );
+    1 => array(
+        'nome' => 'claudio',
+        'senha' => password_hash('12345',PASSWORD_DEFAULT,$options)
+    ),
+    2 => array(
+        'nome' => 'admin',
+        'senha' => password_hash('codeeducation',PASSWORD_DEFAULT,$options)
+    )
+);
 
 //inserindo dados tabela
 $inserirDadosTabela = " INSERT INTO login (nome,senha) VALUES ('{$dadosTabela[1]['nome']}','{$dadosTabela[1]['senha']}');

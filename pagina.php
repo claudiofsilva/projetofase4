@@ -8,21 +8,21 @@ class Pagina {
     private $nomePagina ;
     private $db;
 
-   public function __construct()
-   {
-       $conexao = conexao();
-       $this->db = $conexao;
+    public function __construct()
+    {
+        $conexao = conexao();
+        $this->db = $conexao;
 
-   }
+    }
 
-   public function buscar()
-   {
+    public function buscar()
+    {
 
-       $query = "SELECT * FROM paginas WHERE descricao LIKE '%{$this->getBusca()}%'";
-       $stmt = $this->db->query($query);
-       return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $query = "SELECT * FROM paginas WHERE descricao LIKE '%{$this->getBusca()}%'";
+        $stmt = $this->db->query($query);
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-   }
+    }
 
     public function exibeConteudo()
     {
@@ -43,8 +43,8 @@ class Pagina {
     {
         return $this->busca;
     }
-	
-	public function setNomePagina($nomePagina)
+
+    public function setNomePagina($nomePagina)
     {
         $this->nomePagina = $nomePagina;
         return $this;

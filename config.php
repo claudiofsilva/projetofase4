@@ -1,10 +1,10 @@
 <?php
 
 return array(
-	'db' => array(
-			'host' => 'localhost',
-			'dbname' => 'curso',
-			'user' => 'root',
-			'password' => 'root'
-	)
+    'db' => array(
+        'host' => 'localhost',
+        'dbname' => 'curso',
+        'user' => 'root',
+        'password' => 'root'
+    )
 );
