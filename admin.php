@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if($_SESSION['logado']){
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT);
+
+if(isset($_SESSION['logado'])){
     header('location:/paginas-editar.php');
 }
 ?>
@@ -40,7 +43,7 @@ if($_SESSION['logado']){
                     <button type="submit" class="btn btn-default">Entrar</button>
                 </div>
             </div>
-            <?php if($_GET['erro']) { ?>
+            <?php if(isset($_GET['erro'])) { ?>
                 <div class="alert alert-success" role="alert">Login ou senha inválidos</div>
             <?php } ?>
         </form>

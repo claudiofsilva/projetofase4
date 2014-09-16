@@ -15,7 +15,7 @@ http_response_code(404);
 <body>
 
 <div class="container">
-    <h3 class="text-muted">Projeto fase 3</h3>
+    <h3 class="text-muted">Projeto fase 4</h3>
     <?php require_once 'menu.php' ?>
     <div class="jumbotron">
         <h1>Erro 404</h1>

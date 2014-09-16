@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if($_GET['logout']){
+ini_set('display_errors', true);
+error_reporting(E_ALL | E_STRICT);
+
+if(isset($_GET['logout'])){
     session_unset();
     header('location:/admin.php');
 }
